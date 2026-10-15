@@ -1,0 +1,2 @@
+pip install pyinstaller
+pyinstaller --onefile --name RapportJournalierCRIT --hidden-import pyodbc main.py
