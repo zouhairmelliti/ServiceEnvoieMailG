@@ -15,22 +15,7 @@ logging.basicConfig(
 
 # 👉 Requête SQL Server (syntaxe T-SQL)
 SQL_QUERY = """
-    SELECT 
-        Nature_Radio.Designation   AS [Nature],
-        RADIO.CODEXAM              AS [Code examen],
-        EXAMRAD.DESEXAM            AS [Désignation examen],
-        Client.NomCli              AS [Nom],
-        Client.Prenom              AS [Prénom],
-        CAST(RADIO.DATOPE AS DATE)               AS [Date opération],
-        CAST(RADIO.HEUOPE AS TIME(0))               AS [Heure],
-        RADIO.UserName             AS [Utilisateur]
-    FROM RADIO
-    INNER JOIN EXAMRAD      ON EXAMRAD.CODEXAM   = RADIO.CODEXAM
-    INNER JOIN Nature_Radio ON Nature_Radio.code = EXAMRAD.Nature
-    INNER JOIN Client       ON Client.NumDoss    = RADIO.NumDoss
-    WHERE RADIO.HEUOPE >= DATEADD(HOUR, 8, DATEADD(DAY, -1, CAST(CAST(GETDATE() AS DATE) AS DATETIME)))
-      AND RADIO.HEUOPE <  DATEADD(HOUR, 8, CAST(CAST(GETDATE() AS DATE) AS DATETIME))
-    ORDER BY CAST(RADIO.DATOPE AS DATE), CAST(RADIO.HEUOPE AS TIME(0));
+    
 """
 
 
